@@ -222,33 +222,6 @@ Target
 **************************************************************
 Time taken by function: 0 ms
 
-Example3:
-dependencies
-Ralphs
-Chick-fil-A
-Chick-fil-A
-KFC
-KFC
-Ahmanson Commons
-Ahmanson Commons
-Shell
-Shell
-Target
-Target 
-Ralphs
-locations
-Ralphs
-KFC
-Chick-fil-A
-Ahmanson Commons
-Target
-Shell
-Ralphs
-locations end
-*************************Results******************************
-There is no topological sort for the given graph.
-**************************************************************
-Time taken by function: 0 ms
 
 ## Item 9: The Traveling Trojan Problem (AKA Traveling Salesman!) (Phase 3)
 
@@ -257,8 +230,8 @@ std::pair<double, std::vector<std::vector<std::string>>> TravelingTrojan_Brute_f
       std::vector<std::string> location_ids);
 ```
 Using for loop to get all permutation of locations. Then computing the distance of all permutations. Keeping the shortest one.
-
 The time complexity is O(N^2)
+<p align="center"><img src="img/output.gif" alt="TSP videos" width="500"/></p>
 
 ```c++
 std::pair<double, std::vector<std::vector<std::string>>> TravelingTrojan_Backtracking(
