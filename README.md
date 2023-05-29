@@ -2,7 +2,6 @@ EE538 TrojanMap final report
 ## Presentation video
 https://youtu.be/UJvASAmtQnw
 ## The Data Structure
-
 Each point on the map is represented by the class **Node** shown below and defined in [trojanmap.h](src/lib/trojanmap.h).
 
 ```cpp
@@ -28,7 +27,7 @@ class Node {
       attributes;  // List of the attributes of the location.
 };
 ```
-
+![datastructure](img/datastructure.png)
 ---
 ## Functions
 ## Item 1: Autocomplete The Location Name (Phase 1)
@@ -90,6 +89,7 @@ Fristly, verify if the input regular expression was correct. If not, return empt
 ```c++
 std::vector<std::string> CalculateShortestPath_Dijkstra(std::string &location1_name,std::string &location2_name);
 ```
+![path](img/Picture1.png)
 Find the shortest route from A to B using Dijkstra algorithm.
 Min-queue was used in this program to implement non-recursive Dijkstra algorithm. For nodes in queue, computing the distance between it and its neighbors. If found a shorter distance, update it and push this neighbor onto queue.
 
@@ -126,6 +126,7 @@ In the worst case, it need to do n-1 iterations(n is the number of nodes). In ea
 ```c++
 bool CycleDetection(std::vector<double> &square);
 ```
+![cycle](img/cycle1.png)
 DFS algorithm was used in this function. This non-recursive function was realized by using stack.
 Push unvisited node onto stack. If the visited node exists in the stack, there is a cycle. If not, there is not cycle.
 
@@ -159,7 +160,7 @@ Output: false
 Firstly, compute the degree of nodes in input. Pick the 0-degree node as root.  Pushing the root onto stack. Pop a node from the stack and push its unvisited neighbor onto stack. If the node pop from stack is already visited, remove it from stack and push it onto result. At the end, reverse the order of the result.
 
 The time complexity is O(N), where N is the number of locations in input.
-
+![topological sort](img/Picture2.png)
 Example:
 dependencies
 Ralphs
@@ -265,7 +266,7 @@ The time complexity is O(N^2), where N is the number of locations.
 ```c++
 std::vector<std::string> TrojanMap::FindNearby(std::string attributesName, std::string name, double r, int k);
 ```
-
+![fine nearby](img/Picture4.png)
 Firstly, getting all locations from Category. Check the distance from other locations to target location. If the length is larger than r, skip it. Otherwise, push it onto min-queue. Then, pop nodes from the min-queue and push onto result.
 
 The time complexity is O(N), where N is the number of nodes.
@@ -274,7 +275,7 @@ The time complexity is O(N), where N is the number of nodes.
 ```c++
 std::vector<std::string> TrojanMap::TrojanPath(std::vector<std::string> &location_names)
 ```
-
+![visited all locations](img/Picture3.png)
 Using TSP helper function to calcualte the shortest path permutation. Then, using Dijkstra to calculate shortest path. and push onto res.
 
 The time complexity is O(N!), where N is the number of locations.
